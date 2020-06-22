@@ -3,14 +3,8 @@
 # all my notes for today contained here:
 Elevator Pitch:
 
-My name is Ibrahim and I am training to be a junior Devops Consultant for Sparta Global
-after having spent 2 years as a consultant within the construction industry. *During my time there
-I was given the responsibility of leading and working on projects for high profile clients such as 
-Google, Youtube and WeWork.*
-Sparta global are are an IT solutions provider, where my role within the company 
-will be to work as a part of a team to create bespoke solutions tailored to meet the our
-clients needs. I am currently learning how to use SQL, Python and GIT and I cant wait to delve
- deeper into the material and improve my knowledge of tech solutions. 
+My name is Ibrahim and I am training to be a junior Devops Consultant for Sparta Global after having spent 2 years as a consultant within the construction industry.
+Sparta global are are an IT solutions provider, where my role within the company will be to work as a part of a team to create bespoke solutions tailored to meet the our clients needs. I am currently learning how to use SQL, Python and GIT and I cant wait to delve deeper into the material and improve my knowledge of tech solutions. 
 
 EDITS: TALK MORE ABOUT PAST ESXPERIENCE AND HOW THAT SETS ME APART, NOT TOO MUCH
 A BIT MORE PERSONALITY
