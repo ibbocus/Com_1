@@ -219,3 +219,46 @@ ON p.SupplierID=s.SupplierID
 GROUP BY s.SupplierID, s.CompanyName
 ORDER BY "Average UnitsOnOrder" DESC
 
+
+
+SELECT o.OrderID
+,o.OrderDate
+,o.Freight
+,c.CompanyName AS "Customer Name"
+,Concat(e.FirstName, ' ', e.LastName) AS "Employee Name"
+FROM Employees e
+INNER JOIN orders o 
+ON e.EmployeeID=o.EmployeeID
+INNER JOIN customers c
+ON c.CustomerID=o.CustomerID
+
+GO 
+WITH    EmployeeSales
+          AS ( SELECT   e.EmployeeID ,
+                        e.LastName ,
+                        SUM(od.Quantity * od.UnitPrice) ESales
+               FROM     dbo.Employees AS e
+                        INNER JOIN dbo.Orders AS o ON e.EmployeeID = o.EmployeeID
+                        INNER JOIN dbo.[Order Details] AS od ON o.OrderID = od.OrderID
+               GROUP BY e.EmployeeID ,
+                        e.LastName
+             ),
+        EmployeeRegion
+          AS ( SELECT DISTINCT
+                        EmployeeID ,
+                        r.RegionID ,
+                        RegionDescription
+               FROM     dbo.Region AS r
+                        INNER JOIN dbo.Territories AS t ON r.RegionID = t.RegionID
+                        INNER JOIN dbo.EmployeeTerritories AS et ON t.TerritoryID = et.TerritoryID
+             )
+    SELECT  EmployeeRegion.RegionID ,
+            EmployeeRegion.RegionDescription ,
+            SUM(EmployeeSales.ESales) RegionTotalSale
+    FROM    EmployeeSales
+            INNER JOIN EmployeeRegion ON EmployeeSales.EmployeeID = EmployeeRegion.EmployeeID
+    GROUP BY EmployeeRegion.RegionID ,
+            EmployeeRegion.RegionDescription
+
+
+
